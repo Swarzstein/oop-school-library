@@ -1,5 +1,30 @@
 <a name="readme-top"></a>
 
+<!--
+HOW TO USE:
+This is an example of how you may give instructions on setting up your project locally.
+
+Modify this file to match your project and remove sections that don't apply.
+
+REQUIRED SECTIONS:
+- Table of Contents
+- About the Project
+  - Built With
+  - Live Demo
+- Getting Started
+- Authors
+- Future Features
+- Contributing
+- Show your support
+- Acknowledgements
+- License
+
+OPTIONAL SECTIONS:
+- FAQ
+
+After you're finished please remove all the comments and instructions!
+-->
+
 # 📗 Table of Contents
 
 - [📖 About the Project](#about-project)
@@ -43,6 +68,16 @@
 ### Key Features <a name="key-features"></a>
 
 - **[manages which persons takes books from the library and which books are lend by the library identifying if it's a student or a teacher]**
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- LIVE DEMO -->
+
+## 🚀 Live Demo <a name="live-demo"></a>
+
+> Add a link to your deployed project.
+
+- [Live Demo Not Available]()
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -114,6 +149,26 @@ Contributions, issues, and feature requests are welcome!
 
 Feel free to check the [issues page](https://github.com/Swarzstein/oop-school-library/issues).
 
+<p align="right">(<a href="#readme-top">back to top</a>)</p
+  
+  <!-- SUPPORT -->
+
+## ⭐️ Show your support <a name="support"></a>
+
+> Write a message to encourage readers to support your project
+
+If you like this project give some stars to support it!
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- ACKNOWLEDGEMENTS -->
+
+## 🙏 Acknowledgments <a name="acknowledgements"></a>
+
+> Give credit to everyone who inspired your codebase.
+
+I would like to thank my mates for their support.
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- LICENSE -->
@@ -122,6 +177,8 @@ Feel free to check the [issues page](https://github.com/Swarzstein/oop-school-li
 
 This project is [MIT](./LICENSE) licensed.
 
+<!--
 _NOTE: we recommend using the [MIT license](https://choosealicense.com/licenses/mit/) - you can set it up quickly by [using templates available on GitHub](https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/adding-a-license-to-a-repository). You can also use [any other license](https://choosealicense.com/licenses/) if you wish._
+-->
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
