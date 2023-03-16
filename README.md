@@ -86,11 +86,6 @@ ruby app.rb
 
 > Mention all of the collaborators of this project.
 
-👤 **Oscar Espinoza**
-
-- GitHub: [@Oscar-Espinoza](https://github.com/Oscar-Espinoza)
-- LinkedIn: [Oscar Espinoza](https://www.linkedin.com/in/oscar-d-espinoza/)
-
 👤 **Juan Zorrilla**
 
 - GitHub: [@Swarzstein](https://github.com/Swarzstein)
