@@ -11,4 +11,5 @@ class Book
   def add_rental(rental)
     @rentals.push(rental)
     rental.book = self
+    rental.person.rentals.push(rental) unless rental.person.rentals.include?(rental)
 end
