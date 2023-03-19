@@ -11,13 +11,8 @@ class App
     @rentals = []
   end
 
-  def clean_creen
-    system("cls")
-    system("clear")
-  end
-
   def create_teacher
-    puts "-creating a new teacher-"
+    puts '-creating a new teacher-'
     print 'Name: '
     name = gets.chomp
     print 'Age: '
@@ -33,16 +28,16 @@ class App
     option = gets.chomp.capitalize
     case option
     when 'N'
-      return false
+      false
     when 'Y'
-      return true
+      true
     else
       permission?
     end
   end
 
   def create_student
-    puts "-creating a new student-"
+    puts '-creating a new student-'
     print 'Name: '
     name = gets.chomp
     print 'Age: '
@@ -54,7 +49,6 @@ class App
   end
 
   def create_person
-    clean_creen
     print "\Do you want to create a student (1) or a teacher (2)? [Input the number]: "
     option = gets.chomp.to_i
     case option
@@ -68,7 +62,6 @@ class App
   end
 
   def create_book
-    clean_creen
     puts '-creating new book-'
     print 'Title: '
     title = gets.chomp
@@ -79,62 +72,59 @@ class App
 
   def select_book
     puts 'Select a book from the list by [number]:'
-    @books.each_with_index {|book, i| puts "[#{i}] #{book.title} by #{book.author}"}
-    print "Enter [number]: "
+    @books.each_with_index { |book, i| puts "[#{i}] #{book.title} by #{book.author}" }
+    print 'Enter [number]: '
     index = gets.chomp.to_i
-    if @books[index]
-      return @books[index]
-    else
-      select_book
-    end
+    return @books[index] if @books[index]
+
+    select_book
   end
 
   def select_person
     puts 'Select a person from the list by [number]:'
-    @persons.each_with_index {|person, i| puts "[#{i}] [#{person.class.name}] ID: #{person.id} Name: #{person.name}"}
-    print "Enter [number]: "
+    @persons.each_with_index { |person, i| puts "[#{i}] [#{person.class.name}] ID: #{person.id} Name: #{person.name}" }
+    print 'Enter [number]: '
     index = gets.chomp.to_i
-    if @persons[index]
-      return @persons[index]
-    else
-      select_book
-    end
+    return @persons[index] if @persons[index]
+
+    select_person
   end
 
   def create_rental
-    clean_creen
     book = select_book
     person = select_person
-    print "insert date: "
+    print 'insert date: '
     date = gets.chomp
     @rentals.push(Rental.new(date, book, person))
     puts "rental created successfully.\n"
   end
 
   def all_books
-    @books.each_with_index {|book, i| puts "#{i+1} - #{book.title} by #{book.author}"}
+    @books.each_with_index { |book, i| puts "#{i + 1} - #{book.title} by #{book.author}" }
   end
 
   def all_people
-    @persons.each_with_index {|person, i| puts "#{i+1} - [#{person.class.name}] ID: #{person.id} Name: #{person.name}"}
+    @persons.each_with_index do |person, i|
+      puts "#{i + 1} - [#{person.class.name}] ID: #{person.id} Name: #{person.name}"
+    end
   end
 
   def person_rentals
-    clean_creen
     puts "select person's [ID]:"
-    @persons.each {|person| puts "[#{person.id}] Name: #{person.name} [#{person.class.name}]"}
+    @persons.each { |person| puts "[#{person.id}] Name: #{person.name} [#{person.class.name}]" }
     print 'Enter ID: '
     id = gets.chomp.to_i
-    persona = @persons.find {|person| person.id == id}
+    persona = @persons.find { |person| person.id == id }
     if persona
-      persona.rentals.each {|rental| puts "#{rental.date} - #{rental.person.name} - #{rental.book.title} by #{rental.book.author}"}
+      persona.rentals.each do |rental|
+        puts "#{rental.date} - #{rental.person.name} - #{rental.book.title} by #{rental.book.author}"
+      end
     else
       puts "The id #{id} doesn't exist"
     end
   end
 
   def menu
-    clean_creen
     puts '######################'
     puts '# OOP SCHOOL LIBRARY #'
     puts '######################'
@@ -146,11 +136,8 @@ class App
     puts '5 - Create a rental.'
     puts '6 - List all rentals for a given person id.'
     puts '7 - Exit'
-
     op = gets.chomp.to_i
-    if op>7
-      menu
-    end
+    menu if op > 7
     op
   end
 
@@ -162,7 +149,6 @@ class App
   def start
     loop do
       option = menu
-
       case option
       when 1
         puts all_books
@@ -176,14 +162,10 @@ class App
         create_rental
       when 6
         puts person_rentals
-      when 7
-        break
       else
-
+        break
       end
-
       wait
     end
   end
-
 end
