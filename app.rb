@@ -11,6 +11,11 @@ class App
     @rentals = []
   end
 
+  def clear_screen
+    system('cls')
+    system('clear')
+  end
+
   def create_teacher
     puts '-creating a new teacher-'
     print 'Name: '
@@ -49,7 +54,8 @@ class App
   end
 
   def create_person
-    print "\Do you want to create a student (1) or a teacher (2)? [Input the number]: "
+    clear_screen
+    print 'Do you want to create a student (1) or a teacher (2)? [Input the number]: '
     option = gets.chomp.to_i
     case option
     when 1
@@ -62,6 +68,7 @@ class App
   end
 
   def create_book
+    clear_screen
     puts '-creating new book-'
     print 'Title: '
     title = gets.chomp
@@ -91,81 +98,71 @@ class App
   end
 
   def create_rental
-    book = select_book
-    person = select_person
-    print 'insert date: '
-    date = gets.chomp
-    @rentals.push(Rental.new(date, book, person))
-    puts "rental created successfully.\n"
+    clear_screen
+    if @books.empty?
+      puts 'There are no books to rent'
+    elsif @persons.empty?
+      puts 'There are no persons registered to rent a book'
+    else
+      puts '-creating new rental-'
+      book = select_book
+      person = select_person
+      print 'insert date: '
+      date = gets.chomp
+      @rentals.push(Rental.new(date, book, person))
+      puts "rental added successfully.\n"
+    end
   end
 
   def all_books
-    @books.each_with_index { |book, i| puts "#{i + 1} - #{book.title} by #{book.author}" }
+    clear_screen
+    if @books.length >= 1
+      @books.each_with_index { |book, i| puts "#{i + 1} - #{book.title} by #{book.author}" }
+    else
+      puts "There's no book registered"
+    end
   end
 
   def all_people
-    @persons.each_with_index do |person, i|
-      puts "#{i + 1} - [#{person.class.name}] ID: #{person.id} Name: #{person.name}"
+    clear_screen
+    if @persons.length >= 1
+      @persons.each_with_index do |person, i|
+        puts "#{i + 1} - [#{person.class.name}] ID: #{person.id} Name: #{person.name}"
+      end
+    else
+      puts "There's no person registered"
     end
   end
 
-  def person_rentals
+  def persona_of_id(id)
+    @persons.find { |person| person.id == id }
+  end
+
+  def select_id
     puts "select person's [ID]:"
     @persons.each { |person| puts "[#{person.id}] Name: #{person.name} [#{person.class.name}]" }
     print 'Enter ID: '
-    id = gets.chomp.to_i
-    persona = @persons.find { |person| person.id == id }
-    if persona
-      persona.rentals.each do |rental|
-        puts "#{rental.date} - #{rental.person.name} - #{rental.book.title} by #{rental.book.author}"
+    gets.chomp.to_i
+  end
+
+  def person_rentals
+    clear_screen
+    if @persons.length >= 1
+      id = select_id
+      persona = persona_of_id(id)
+      if persona
+        if persona.rentals.length >= 1
+          persona.rentals.each do |rental|
+            puts "#{rental.date} - #{rental.person.name} - #{rental.book.title} by #{rental.book.author}"
+          end
+        else
+          puts "This person has't rented any book"
+        end
+      else
+        puts "The ID #{id} doesn't exist"
       end
     else
-      puts "The id #{id} doesn't exist"
-    end
-  end
-
-  def menu
-    puts '######################'
-    puts '# OOP SCHOOL LIBRARY #'
-    puts '######################'
-    puts "\nPlease choose an option by entering a number: "
-    puts '1 - List all books.'
-    puts '2 - List all people.'
-    puts '3 - Create a person,'
-    puts '4 - Create a book.'
-    puts '5 - Create a rental.'
-    puts '6 - List all rentals for a given person id.'
-    puts '7 - Exit'
-    op = gets.chomp.to_i
-    menu if op > 7
-    op
-  end
-
-  def wait
-    gets.chomp
-    puts ''
-  end
-
-  def start
-    loop do
-      option = menu
-      case option
-      when 1
-        puts all_books
-      when 2
-        puts all_people
-      when 3
-        create_person
-      when 4
-        create_book
-      when 5
-        create_rental
-      when 6
-        puts person_rentals
-      else
-        break
-      end
-      wait
+      puts "There's no person registered"
     end
   end
 end
