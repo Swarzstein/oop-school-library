@@ -15,7 +15,7 @@ def menu
   puts '6 - List all rentals for a given person id.'
   puts '7 - Exit'
   op = gets.chomp.to_i
-  menu if op > 7
+  menu unless op < 8 && op.positive?
   op
 end
 
@@ -40,7 +40,7 @@ def start
       app.create_rental
     when 6
       app.person_rentals
-    when 7
+    else
       break
     end
     wait
