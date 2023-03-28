@@ -30,43 +30,10 @@ class App
     puts "Book created successfully\n"
   end
 
-  def select_book
-    puts 'Select a book from the list by [number]:'
-    @books.each_with_index { |book, i| puts "[#{i}] #{book.title} by #{book.author}" }
-    print 'Enter [number]: '
-    index = gets.chomp.to_i
-    return @books[index] if @books[index]
-
-    select_book
-  end
-
-  def select_person
-    puts 'Select a person from the list by [number]:'
-    @persons.each_with_index do |person, i|
-      puts "[#{i}] [#{person.class.name}] ID: #{person.id} Name: #{person.name}"
-    end
-    print 'Enter [number]: '
-    index = gets.chomp.to_i
-    return @persons[index] if @persons[index]
-
-    select_person
-  end
-
   def create_rental
     clear_screen
-    if @books.empty?
-      puts 'There are no books to rent'
-    elsif @persons.empty?
-      puts 'There are no persons registered to rent a book'
-    else
-      puts '-creating new rental-'
-      book = select_book
-      person = select_person
-      print 'insert date: '
-      date = gets.chomp
-      @rentals.push(Rental.new(date, book, person))
+      @rentals.push(create_new_rental)
       puts "rental added successfully.\n"
-    end
   end
 
   def all_books
