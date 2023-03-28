@@ -29,8 +29,8 @@ class App
 
   def create_rental
     clear_screen
-      @rentals.push(create_new_rental)
-      puts "rental added successfully.\n"
+    @rentals.push(create_new_rental(@books, @persons))
+    puts "rental added successfully.\n"
   end
 
   def all_books
