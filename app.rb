@@ -1,3 +1,4 @@
+require 'json'
 require_relative 'classes/book'
 require_relative 'classes/rental'
 require_relative 'modules/creator'
