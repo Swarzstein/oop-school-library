@@ -49,6 +49,7 @@ end
 
 def main
   start
+  save_data
   puts 'Thank you for using this app!'
   wait
   system('cls')

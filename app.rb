@@ -2,13 +2,16 @@ require 'json'
 require_relative 'classes/book'
 require_relative 'classes/rental'
 require_relative 'modules/creator'
+require_relative 'app_store'
 
 class App
   include Creator
+  include Store
   def initialize
     @books = []
     @persons = []
     @rentals = []
+    load_data
   end
 
   def clear_screen
