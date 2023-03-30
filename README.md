@@ -109,13 +109,15 @@ ruby app.rb
 
 ## 👥 Authors <a name="authors"></a>
 
-> Mention all of the collaborators of this project.
-
 👤 **Juan Zorrilla**
 
 - GitHub: [@Swarzstein](https://github.com/Swarzstein)
 - LinkedIn: [Juan Zorrilla](https://www.linkedin.com/in/juan-a-zorrilla/)
 
+👤 **Israel Chizungu**
+
+- GitHub: [@chiztechnology](https://github.com/chiztechnology)
+- LinkedIn: [Israel Chizungu](https://www.linkedin.com/in/israel-chizungu-b70316125/)
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -123,8 +125,6 @@ ruby app.rb
 <!-- FUTURE FEATURES -->
 
 ## 🔭 Future Features <a name="future-features"></a>
-
-> Describe 1 - 3 features you will add to the project.
 
 - [ ] **[Adding people]**
 - [ ] **[Adding books]**
@@ -145,8 +145,6 @@ Feel free to check the [issues page](https://github.com/Swarzstein/oop-school-li
 
 ## ⭐️ Show your support <a name="support"></a>
 
-> Write a message to encourage readers to support your project
-
 If you like this project give some stars to support it!
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -154,8 +152,6 @@ If you like this project give some stars to support it!
 <!-- ACKNOWLEDGEMENTS -->
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
-
-> Give credit to everyone who inspired your codebase.
 
 I would like to thank my mates for their support.
 
