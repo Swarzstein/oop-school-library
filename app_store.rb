@@ -41,6 +41,9 @@ module Store
     return unless File.exist?('store/person.json') && File.size?('store/person.json')
 
     store = JSON.parse(File.read('store/person.json'))
+    puts('----trial----')
+    puts(store)
+
     store.map do |person|
       if person['class'] == 'Student'
         @person.push(Student.new(person['age'], person['name'], person['id'],
@@ -58,8 +61,6 @@ module Store
       rental_book = @books.find { |book| book.title == rental['book']['title'] }
       rental_person = @person.find { |person| person.id == rental['person']['id'] }
       @rentals.push(Rental.new(rental['date'], rental_book, rental_person))
-      puts('log -------')
-      puts("object received:::->" + rental['date'] +  rental_book + rental_person)
     end
   end
 end
