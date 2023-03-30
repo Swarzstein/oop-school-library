@@ -7,7 +7,7 @@ describe Classroom do
       classroom = Classroom.new('Mathmatics')
       array = []
       expect(classroom).to be_instance_of(Classroom)
-      expect(classroom.label).to eq('Mathmatics')
+      expect(classroom.label).to eq('Mathematics')
       expect(classroom.students).to eq(array)
     end
   end

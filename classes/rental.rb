@@ -1,3 +1,5 @@
+require 'json'
+
 class Rental
   attr_accessor :date, :book, :person
 
@@ -9,5 +11,10 @@ class Rental
 
     @person = person
     person.rentals << self unless person.rentals.include?(self)
+  end
+
+  def to_json(*_args)
+    hash = { date: @date, book: @book, person: @person }
+    hash.to_json
   end
 end

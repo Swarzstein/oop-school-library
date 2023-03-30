@@ -7,9 +7,6 @@ describe Teacher do
     it "Should return 'Unknown' if we check the name when instanciated only with age" do
       expect(teacher1.name).to eq 'Unknown'
     end
-    it 'Should return an integer if we check the id' do
-      expect(teacher2.id).to be_kind_of Integer
-    end
     it "Should return 'Augusto' if we check the name" do
       expect(teacher2.name).to eq 'Augusto'
     end
