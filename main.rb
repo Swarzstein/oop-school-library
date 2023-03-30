@@ -41,6 +41,7 @@ def start
     when 6
       app.person_rentals
     else
+      app.save_data
       break
     end
     wait
@@ -50,8 +51,6 @@ end
 def main
   start
   puts 'Thank you for using this app!'
-  ap = App.new
-  ap.save_data
   wait
   system('cls')
   system('clear')

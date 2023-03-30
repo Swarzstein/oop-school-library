@@ -17,7 +17,7 @@ module Store
   end
 
   def save_person
-    File.open('store/person.json', 'w') { |s| s << @person.to_json }
+    File.open('store/person.json', 'w') { |s| s << @persons.to_json }
   end
 
   def save_rentals
@@ -43,6 +43,7 @@ module Store
     store = JSON.parse(File.read('store/person.json'))
     store.map do |person|
       if person['class'] == 'Student'
+
         @persons.push(Student.new(person['age'], person['name'], person['id'],
                                  parent_permission: person['parent_permission']))
       else
