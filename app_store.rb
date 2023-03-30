@@ -1,9 +1,9 @@
 require 'date'
-require_relative 'person'
-require_relative 'student'
-require_relative 'teacher'
-require_relative 'rental'
-require_relative 'book'
+require_relative 'classes/person'
+require_relative 'classes/student'
+require_relative 'classes/teacher'
+require_relative 'classes/rental'
+require_relative 'classes/book'
 
 module Store
   def save_data

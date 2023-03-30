@@ -1,13 +1,14 @@
 require_relative 'nameable'
 require 'json'
+require 'securerandom'
 
 class Person < Nameable
   attr_accessor :name, :age, :rentals, :parent_permission
   attr_reader :id
 
-  def initialize(age, name = 'Unknown', parent_permission: true)
+  def initialize(age, name = 'Unknown', id = SecureRandom.uuid, parent_permission: true)
     super()
-    @id = rand(1..10_000)
+    @id = id
     @name = name
     @age = age
     @parent_permission = parent_permission
