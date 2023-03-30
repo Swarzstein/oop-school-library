@@ -45,16 +45,17 @@ module Store
       if person['class'] == 'Student'
 
         @persons.push(Student.new(person['age'], person['name'], person['id'],
-                                 parent_permission: person['parent_permission']))
+                                  parent_permission: person['parent_permission']))
       else
         @persons.push(Teacher.new(person['age'], person['specialization'], person['name'], person['id'],
-                                 parent_permission: person['parent_permission']))
+                                  parent_permission: person['parent_permission']))
       end
     end
   end
 
   def load_rentals
     return unless File.exist?('store/rentals.json') && File.size?('store/rentals.json')
+
     JSON.parse(File.read('store/rentals.json')).each do |rental|
       rental_book = @books.find { |book| book.title == rental['book']['title'] }
       rental_person = @persons.find { |person| person.id == rental['person']['id'] }

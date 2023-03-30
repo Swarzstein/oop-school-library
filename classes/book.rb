@@ -21,5 +21,4 @@ class Book
     hash = { title: @title, author: @author }
     hash.to_json
   end
-
 end

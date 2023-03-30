@@ -24,8 +24,7 @@ def wait
   gets.chomp
 end
 
-def start
-  app = App.new
+def run_app(app)
   loop do
     case menu
     when 1
@@ -41,11 +40,16 @@ def start
     when 6
       app.person_rentals
     else
-      app.save_data
       break
     end
     wait
   end
+end
+
+def start
+  app = App.new
+  run_app(app)
+  app.save_data
 end
 
 def main
