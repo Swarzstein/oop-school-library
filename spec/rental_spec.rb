@@ -12,4 +12,12 @@ describe Rental do
       expect(rental).to be_instance_of(Rental)
     end
   end
+
+  context 'Test the to_json method in Rental' do
+    it 'passes the info as a json format to store' do
+      json_sample_data = '{"class":"Person","id":null,"name":"israel ch","age":22,"parent_permission":true}'
+      first_person_obj = firstPerson.to_json
+      expect(first_person_obj).to eq(json_sample_data)
+    end
+  end
 end

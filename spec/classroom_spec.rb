@@ -5,7 +5,7 @@ describe Classroom do
   context 'Test classroom class' do
     it 'creating an instance object of classroom' do
       classroom = Classroom.new('Mathmatics')
-      array = [] # array = Array.new
+      array = []
       expect(classroom).to be_instance_of(Classroom)
       expect(classroom.label).to eq('Mathmatics')
       expect(classroom.students).to eq(array)
