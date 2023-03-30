@@ -62,4 +62,3 @@ module Store
     end
   end
 end
-
