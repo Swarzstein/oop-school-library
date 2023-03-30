@@ -41,15 +41,12 @@ module Store
     return unless File.exist?('store/person.json') && File.size?('store/person.json')
 
     store = JSON.parse(File.read('store/person.json'))
-    puts('----trial----')
-    puts(store)
-
     store.map do |person|
       if person['class'] == 'Student'
-        @person.push(Student.new(person['age'], person['name'], person['id'],
+        @persons.push(Student.new(person['age'], person['name'], person['id'],
                                  parent_permission: person['parent_permission']))
       else
-        @person.push(Teacher.new(person['age'], person['specialization'], person['name'], person['id'],
+        @persons.push(Teacher.new(person['age'], person['specialization'], person['name'], person['id'],
                                  parent_permission: person['parent_permission']))
       end
     end

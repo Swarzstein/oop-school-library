@@ -26,8 +26,6 @@ end
 
 def start
   app = App.new
-  app.save_data
-  
   loop do
     case menu
     when 1
@@ -52,6 +50,8 @@ end
 def main
   start
   puts 'Thank you for using this app!'
+  ap = App.new
+  ap.save_data
   wait
   system('cls')
   system('clear')
