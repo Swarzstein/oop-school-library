@@ -57,7 +57,7 @@ module Store
     return unless File.exist?('store/rentals.json') && File.size?('store/rentals.json')
     JSON.parse(File.read('store/rentals.json')).each do |rental|
       rental_book = @books.find { |book| book.title == rental['book']['title'] }
-      rental_person = @person.find { |person| person.id == rental['person']['id'] }
+      rental_person = @persons.find { |person| person.id == rental['person']['id'] }
       @rentals.push(Rental.new(rental['date'], rental_book, rental_person))
     end
   end

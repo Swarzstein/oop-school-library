@@ -65,7 +65,7 @@ class App
     puts "select person's [ID]:"
     @persons.each { |person| puts "[#{person.id}] Name: #{person.name} [#{person.class.name}]" }
     print 'Enter ID: '
-    gets.chomp.to_i
+    gets.chomp
   end
 
   def person_rentals
