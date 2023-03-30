@@ -4,10 +4,10 @@ require_relative '../classes/student'
 describe Classroom do
   context 'Test classroom class' do
     it 'creating an instance object of classroom' do
-      classroom = Classroom.new('Mathmatics')
+      classroom = Classroom.new('Mathematics')
       array = [] # array = Array.new
       expect(classroom).to be_instance_of(Classroom)
-      expect(classroom.label).to eq('Mathmatics')
+      expect(classroom.label).to eq('Mathematics')
       expect(classroom.students).to eq(array)
     end
   end

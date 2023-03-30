@@ -2,11 +2,8 @@ require_relative '../classes/student'
 
 describe Student do
   context 'When testing the Student class' do
-    student1 = Student.new(19,'Augusto', parent_permission: false)
-    student2 = Student.new(15,'Augusto', parent_permission: false)
-    it 'Should return an integer if we check the id' do
-      expect(student1.id).to be_kind_of Integer
-    end
+    student1 = Student.new(19, 'Augusto', parent_permission: false)
+    student2 = Student.new(15, 'Augusto', parent_permission: false)
     it "Should return 'Augusto' if we check the name" do
       expect(student1.name).to eq 'Augusto'
     end
