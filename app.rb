@@ -19,26 +19,36 @@ class App
     system('clear')
   end
 
+  def header
+    puts '######################'
+    puts '# OOP SCHOOL LIBRARY #'
+    puts "######################\n\n"
+  end
+
   def create_person
     clear_screen
+    header
     @persons.push(create_new_person)
     puts "Person created successfully\n"
   end
 
   def create_book
     clear_screen
+    header
     @books.push(create_new_book)
     puts "Book created successfully\n"
   end
 
   def create_rental
     clear_screen
+    header
     @rentals.push(create_new_rental(@books, @persons))
     puts "rental added successfully.\n"
   end
 
   def all_books
     clear_screen
+    header
     if @books.length >= 1
       @books.each_with_index { |book, i| puts "#{i + 1} - #{book.title} by #{book.author}" }
     else
@@ -48,6 +58,7 @@ class App
 
   def all_people
     clear_screen
+    header
     if @persons.length >= 1
       @persons.each_with_index do |person, i|
         puts "#{i + 1} - [#{person.class.name}] ID: #{person.id} Name: #{person.name}"
@@ -70,6 +81,7 @@ class App
 
   def person_rentals
     clear_screen
+    header
     if @persons.length >= 1
       id = select_id
       persona = persona_of_id(id)
