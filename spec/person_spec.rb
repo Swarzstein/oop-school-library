@@ -25,7 +25,6 @@ describe Person do
       expect(person4.can_use_services?).to eq true
     end
     it 'Converts data into json format ' do
-      json_sample_data = '{"class":"Person","id":null,"name":"israel ch","age":22,"parent_permission":true}'
       person_obj = person1.to_json
       def valid_json?(value)
         result = JSON.parse(value)
@@ -34,7 +33,7 @@ describe Person do
       rescue JSON::ParserError, TypeError
         false
       end
-      expect(valid_json?(person_obj)).to eq(valid_json?(json_sample_data))
+      expect(valid_json?(person_obj)).to eq true
     end
   end
 end
