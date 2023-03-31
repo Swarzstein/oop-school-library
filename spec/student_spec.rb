@@ -1,5 +1,15 @@
 require_relative '../classes/student'
 
+class Classroom
+  attr_accessor :label
+  attr_reader :students
+
+  def initialize(label)
+    @label = label
+    @students = []
+  end
+end
+
 describe Student do
   context 'When testing the Student class' do
     student1 = Student.new(19, 'Augusto', parent_permission: false)
@@ -19,6 +29,15 @@ describe Student do
     it "Should return '3' if we check the student's rentals after adding 3 rentals" do
       student2.rentals.push('rent', 'rent', 'rent')
       expect(student2.rentals.length).to eq 3
+    end
+    it 'Should return ¯\\(ツ)/¯ when calling play_hooky' do
+      expect(student1.play_hooky).to eq '¯\(ツ)/¯'
+    end
+    it 'Should add a classroom when calling classroom=(classroom)' do
+      classroom = Classroom.new('Biology')
+      student1.classroom = classroom
+      expect(student1.classroom).to eq classroom
+      expect(classroom.students).to eq [student1]
     end
   end
 end

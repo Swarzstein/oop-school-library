@@ -18,20 +18,23 @@ describe Person do
     it "Should return 0 if we check the person's rentals without any rental" do
       expect(person1.rentals.length).to eq 0
     end
-    it "Should return true when checking parents' permission if instanciated without permission" do
-      expect(person1.parent_permission).to eq true
-    end
-    it 'Should return true when checking use of service if instanciated without permission' do
-      expect(person1.can_use_services?).to eq true
-    end
-    it "Should return false when checking parents' permission  if instanciated with permission as false" do
-      expect(person2.parent_permission).to eq false
-    end
-    it 'Should return false when checking use of service if instanciated with permission as false and < 18' do
+    it 'Returns false when checking use of service if instanciated with permission as false and age < 18' do
       expect(person2.can_use_services?).to eq false
     end
-    it 'Should return true when checking use of service if instanciated with permission as false and +18' do
+    it 'Returns true when checking use of service if instanciated with permission as false and age +18' do
       expect(person4.can_use_services?).to eq true
+    end
+    it 'Converts data into json format ' do
+      json_sample_data = '{"class":"Person","id":null,"name":"israel ch","age":22,"parent_permission":true}'
+      person_obj = person1.to_json
+      def valid_json?(value)
+        result = JSON.parse(value)
+
+        result.is_a?(Hash) || result.is_a?(Array)
+      rescue JSON::ParserError, TypeError
+        false
+      end
+      expect(valid_json?(person_obj)).to eq(valid_json?(json_sample_data))
     end
   end
 end

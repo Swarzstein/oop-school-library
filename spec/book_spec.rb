@@ -16,5 +16,10 @@ describe Book do
       book.rentals.push('rent', 'rent', 'rent')
       expect(book.rentals.length).to eq 3
     end
+    it 'Converts data into json format ' do
+      json_sample_data = '{"title":"La Esfera","author":"Augusto"}'
+      book_obj = book.to_json
+      expect(book_obj).to eq(json_sample_data)
+    end
   end
 end
