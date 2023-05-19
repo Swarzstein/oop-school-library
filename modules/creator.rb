@@ -82,7 +82,7 @@ module Creator
   def create_new_book
     puts '-creating new book-'
     print 'Title: '
-    title = gets.chomp
+    title = gets.chom
     print 'Author: '
     author = gets.chomp
     Book.new(title, author)
