@@ -32,7 +32,7 @@ class Person < Nameable
   end
 
   def add_rental(rental)
-    @rental.push(rental)
+    @rentals.push(rental)
     rental.person = self
     rental.book.rentals.push(rental) unless rental.book.rentals.include?(rental)
   end

@@ -46,7 +46,7 @@ module Creator
     puts 'Select a book from the list by [number]:'
     books.each_with_index { |book, i| puts "[#{i}] #{book.title} by #{book.author}" }
     print 'Enter [number]: '
-    index = gets.chomp.to_i
+    index = gets.chomp
     return books[index] if @books[index]
 
     select_book
@@ -58,7 +58,7 @@ module Creator
       puts "[#{i}] [#{person.class.name}] ID: #{person.id} Name: #{person.name}"
     end
     print 'Enter [number]: '
-    index = gets.chomp.to_i
+    index = gets.chomp
     return persons[index] if persons[index]
 
     select_person
@@ -85,7 +85,7 @@ module Creator
     title = gets.chom
     print 'Author: '
     author = gets.chomp
-    Book.new(title, author)
+    Book.new(title, autor)
   end
 
   def create_new_rental(books, persons)
@@ -95,7 +95,7 @@ module Creator
       puts 'There are no persons registered to rent a book'
     else
       puts '-creating new rental-'
-      book = select_book(books)
+      book = select_book(book)
       person = select_person(persons)
       print 'insert date: '
       date = gets.chomp
